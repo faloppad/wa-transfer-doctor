@@ -1,0 +1,168 @@
+{
+  "tool": "wa-transfer-doctor",
+  "version": "0.1.0",
+  "generated_at": "2026-10-25T09:07:45",
+  "source_file": "msgstore.db",
+  "redacted": true,
+  "stats": {
+    "messages": 339,
+    "chats": 3,
+    "first_message": "2023-11-14 22:15:20",
+    "last_message": "2023-11-15 03:52:20",
+    "types": {
+      "text": 289,
+      "image": 49,
+      "view-once image": 1
+    }
+  },
+  "checks": [
+    {
+      "id": "integrity",
+      "title": "SQLite integrity",
+      "status": "ok",
+      "count": 0,
+      "items": []
+    },
+    {
+      "id": "empty_text",
+      "title": "Text messages with no text",
+      "status": "problem",
+      "count": 2,
+      "items": [
+        {
+          "message_id": 302,
+          "chat_row_id": 3,
+          "chat": "group #3",
+          "time": "2023-11-15 03:15:20",
+          "from_me": false,
+          "type": "text"
+        },
+        {
+          "message_id": 309,
+          "chat_row_id": 2,
+          "chat": "+39••••••002",
+          "time": "2023-11-15 03:22:20",
+          "from_me": false,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "media_without_record",
+      "title": "Media / view-once messages without a media record",
+      "status": "suspect",
+      "count": 1,
+      "items": [
+        {
+          "message_id": 303,
+          "chat_row_id": 1,
+          "chat": "+31••••••001",
+          "time": "2023-11-15 03:16:20",
+          "from_me": false,
+          "type": "view-once image"
+        }
+      ]
+    },
+    {
+      "id": "orphan_messages",
+      "title": "Messages pointing to a chat that does not exist",
+      "status": "suspect",
+      "count": 3,
+      "items": [
+        {
+          "message_id": 304,
+          "chat_row_id": 77,
+          "chat": "missing chat #77",
+          "time": "2023-11-15 03:17:20",
+          "from_me": false,
+          "type": "text",
+          "text": "[text, 27 chars]"
+        },
+        {
+          "message_id": 305,
+          "chat_row_id": 77,
+          "chat": "missing chat #77",
+          "time": "2023-11-15 03:18:20",
+          "from_me": false,
+          "type": "image",
+          "text": "[image]"
+        },
+        {
+          "message_id": 306,
+          "chat_row_id": 78,
+          "chat": "missing chat #78",
+          "time": "2023-11-15 03:19:20",
+          "from_me": false,
+          "type": "text",
+          "text": "[text, 27 chars]"
+        }
+      ]
+    },
+    {
+      "id": "missing_sender",
+      "title": "Messages whose sender does not exist",
+      "status": "suspect",
+      "count": 1,
+      "items": [
+        {
+          "message_id": 307,
+          "chat_row_id": 2,
+          "chat": "+39••••••002",
+          "time": "2023-11-15 03:20:20",
+          "from_me": false,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "bad_timestamps",
+      "title": "Missing, zero or future timestamps",
+      "status": "suspect",
+      "count": 1,
+      "items": [
+        {
+          "message_id": 308,
+          "chat_row_id": 2,
+          "chat": "+39••••••002",
+          "time": "1970-01-01 00:00:00",
+          "from_me": false,
+          "type": "text",
+          "raw_timestamp": 0
+        }
+      ]
+    },
+    {
+      "id": "big_chats",
+      "title": "Largest chats",
+      "status": "ok",
+      "count": 0,
+      "items": [
+        {
+          "chat_row_id": 2,
+          "chat": "+39••••••002",
+          "messages": 113,
+          "media_items": 16,
+          "media_bytes": 4000000,
+          "huge": false
+        },
+        {
+          "chat_row_id": 1,
+          "chat": "+31••••••001",
+          "messages": 111,
+          "media_items": 17,
+          "media_bytes": 4250000,
+          "huge": false
+        },
+        {
+          "chat_row_id": 3,
+          "chat": "group #3",
+          "messages": 111,
+          "media_items": 15,
+          "media_bytes": 3750000,
+          "huge": false
+        }
+      ]
+    }
+  ],
+  "findings": 5
+}

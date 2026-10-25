@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wa-transfer-doctor"
+version = "0.1.0"
+description = "Find the messages and chats that make WhatsApp's Android to iPhone transfer get stuck. Runs fully offline."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Faloppa" }]
+keywords = ["whatsapp", "msgstore", "crypt15", "move-to-ios", "android", "iphone", "transfer"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Utilities",
+]
+dependencies = ["wa-crypt-tools"]
+
+[project.urls]
+Homepage = "https://github.com/faloppad/wa-transfer-doctor"
+Issues = "https://github.com/faloppad/wa-transfer-doctor/issues"
+
+[project.scripts]
+wa-transfer-doctor = "wa_transfer_doctor:main"
+
+[tool.setuptools]
+py-modules = ["wa_transfer_doctor"]
